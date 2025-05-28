@@ -42,9 +42,10 @@ public class PlayerServiceImpl implements IPlayerService {
     }
 
     @Override
-    public Player updatePlayer(Long playerId, Player updatedPlayer) {
-        Player player = getPlayerById(playerId);
-
+    public Player updatePlayer(Long playerId, PlayerDTO updatedPlayer) {
+        if(playerRepository.findById(playerId)
+        {
+        Player player=new Player();
         player.setPlayerName(updatedPlayer.getPlayerName());
         player.setJerseyNumber(updatedPlayer.getJerseyNumber());
         player.setRole(updatedPlayer.getRole());
@@ -54,6 +55,10 @@ public class PlayerServiceImpl implements IPlayerService {
         player.setDescription(updatedPlayer.getDescription());
 
         return playerRepository.save(player);
+        }
+        else
+        {
+            throw new PlayerNotFoundException("No players found");
     }
 
     @Override
