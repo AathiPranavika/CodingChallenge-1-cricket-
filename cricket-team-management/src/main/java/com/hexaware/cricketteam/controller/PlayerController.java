@@ -49,7 +49,7 @@ public class PlayerController {
     }
 
     @PutMapping("/{id}")
-    public Player updatePlayer(@PathVariable("id") Long id, @RequestBody Player player) {
+    public Player updatePlayer(@PathVariable("id") Long id, @RequestBody PlayerDTO player) {
         return playerService.updatePlayer(id, player);
     }
 
