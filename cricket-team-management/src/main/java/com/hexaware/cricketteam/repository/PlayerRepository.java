@@ -9,5 +9,4 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface PlayerRepository extends JpaRepository<Player, Long> {
-	List<Player> findByRole(String role);
 }
