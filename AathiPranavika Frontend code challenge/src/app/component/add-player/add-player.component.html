@@ -1,0 +1,85 @@
+
+<form #playerForm="ngForm" method="post" class="container col-md-4" (ngSubmit)="playerData(playerForm.value)">
+    <div class="form-group mb-3">
+    <label>Player ID:</label>
+    <input type="number" class="form-control" name="playerId" required min="1"
+      #playerIdControl="ngModel" ngModel>
+    <span style="color: red;" *ngIf="playerIdControl.touched && playerIdControl.invalid">
+      Player ID is required and must be greater than 0
+    </span>
+  </div>
+  <!-- Player Name -->
+  <div class="form-group mb-3">
+    <label>Player Name:</label>
+    <input type="text" class="form-control" name="playerName" required minlength="2" maxlength="255"
+      #playerNameControl="ngModel" ngModel>
+    <span style="color: red;" *ngIf="playerNameControl.touched && playerNameControl.invalid">
+      Player Name is mandatory (min 2 characters)
+    </span>
+  </div>
+
+  <!-- Jersey Number -->
+  <div class="form-group mb-3">
+    <label>Jersey Number:</label>
+    <input type="number" class="form-control" name="jerseyNumber" required min="0"
+      #jerseyNumberControl="ngModel" ngModel>
+    <span style="color: red;" *ngIf="jerseyNumberControl.touched && jerseyNumberControl.invalid">
+      Jersey Number is required
+    </span>
+  </div>
+
+  <!-- Role -->
+  <div class="form-group mb-3">
+    <label>Role:</label>
+    <select class="form-control" name="role" required #roleControl="ngModel" ngModel>
+      <option value="">-- Select Role --</option>
+      <option value="Batsman">Batsman</option>
+      <option value="Bowler">Bowler</option>
+      <option value="Keeper">Keeper</option>
+      <option value="All Rounder">All Rounder</option>
+    </select>
+    <span style="color: red;" *ngIf="roleControl.touched && roleControl.invalid">
+      Role is required
+    </span>
+  </div>
+
+  <!-- Total Matches -->
+  <div class="form-group mb-3">
+    <label>Total Matches:</label>
+    <input type="number" class="form-control" name="totalMatches" required min="0"
+      #matchesControl="ngModel" ngModel>
+    <span style="color: red;" *ngIf="matchesControl.touched && matchesControl.invalid">
+      Total Matches is required
+    </span>
+  </div>
+
+  <!-- Team Name -->
+  <div class="form-group mb-3">
+    <label>Team Name:</label>
+    <input type="text" class="form-control" name="teamName" required #teamControl="ngModel" ngModel>
+    <span style="color: red;" *ngIf="teamControl.touched && teamControl.invalid">
+      Team Name is required
+    </span>
+  </div>
+
+  <!-- State -->
+  <div class="form-group mb-3">
+    <label>State / Country:</label>
+    <input type="text" class="form-control" name="state" required #stateControl="ngModel" ngModel>
+    <span style="color: red;" *ngIf="stateControl.touched && stateControl.invalid">
+      State/Country is required
+    </span>
+  </div>
+
+  <!-- Description -->
+  <div class="form-group mb-3">
+    <label>Description (optional):</label>
+    <textarea class="form-control" name="description" maxlength="1000" #descControl="ngModel" ngModel></textarea>
+  </div>
+
+  <!-- Submit Button -->
+  <div class="text-center">
+    <button type="submit" class="btn btn-success" [disabled]="playerForm.invalid">Submit</button>
+  </div>
+
+</form>
